@@ -1,0 +1,155 @@
+package com.example.loginscreenwithtoast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity3 extends AppCompatActivity {
+            TextView screen;
+            Button one ,two, three , four ,five , root, square , plus , min, div,equal,dot;
+            String opertor;
+            Double value1=0.0,value2=0.0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main3);
+
+         screen = (TextView)findViewById(R.id.displayy);
+         one = (Button) findViewById(R.id.one);
+         two = (Button) findViewById(R.id.two);
+         three = (Button) findViewById(R.id.three);
+         four = (Button) findViewById(R.id.four);
+         five = (Button) findViewById(R.id.five);
+         root = (Button) findViewById(R.id.root);
+         square = (Button) findViewById(R.id.sq);
+         plus = (Button) findViewById(R.id.plus);
+         min = (Button) findViewById(R.id.min);
+         equal = (Button)findViewById(R.id.equal);
+
+
+
+//        Bundle b = getIntent().getExtras();
+//        String name = b.getString("name");
+//        Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
+
+
+        one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String screenvalue = screen.getText().toString();
+                screenvalue = screenvalue + "1";
+                screen.setText(screenvalue);
+
+            }
+        });
+
+        two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String screenvalue = screen.getText().toString();
+                screenvalue = screenvalue + "2";
+                screen.setText(screenvalue);
+
+            }
+        });
+
+        three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String screenvalue = screen.getText().toString();
+                screenvalue = screenvalue + "1";
+                screen.setText(screenvalue);
+
+            }
+        });
+
+        four.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String screenvalue = screen.getText().toString();
+                screenvalue = screenvalue + "4";
+                screen.setText(screenvalue);
+
+            }
+        });
+
+        five.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String screenvalue = screen.getText().toString();
+                screenvalue = screenvalue + "5";
+                screen.setText(screenvalue);
+
+            }
+        });
+
+
+        //operators
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(screen.getText().toString());
+                opertor = "+";
+                screen.setText("0");
+
+            }
+        });
+
+        min.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(screen.getText().toString());
+                opertor = "-";
+                screen.setText("0");
+
+            }
+        });
+
+    // root and suqare
+
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(screen.getText().toString());
+                Double rootvalue = Math.sqrt(value1) ;
+                screen.setText(String.valueOf(rootvalue));
+            }
+        });
+
+        square.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value1 = Double.parseDouble(screen.getText().toString());
+                Double square = value1 * value1;
+                screen.setText(String.valueOf(square));
+            }
+        });
+
+        //equal
+
+        equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value2=Double.parseDouble(screen.getText().toString());
+                Double result=0.0;
+                switch (opertor){
+
+                    case "+": result= value1+value2;
+                               screen.setText(String.valueOf(result));
+                               break;
+                    case "-": result= value1-value2;
+                              screen.setText(String.valueOf(result));
+                              break;
+
+                }
+            }
+        });
+
+
+    }
+}
